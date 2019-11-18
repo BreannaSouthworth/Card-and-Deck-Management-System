@@ -1,7 +1,7 @@
 # Card-and-Deck-Management-System
 Java program allowing Users to sort and manage cards and decks for various Trading Card Games (TCG).
 
-## Motivatiion
+## Motivation
 I have a personal passion for many TCGs, even though I may seem more casual and new than other players. The idea for a Card & Deck Management system (CDM) came to me when sorting my personal collection of cards for the seemingly millionth time as I was planning to make a new deck. Realizing with my skill as a software developer, that I could program a tool to sort and analyze my cards for the best structure or theme for a deck rather doing it by hand.
 
 That's how CDM started as a way to manage, sort, and build Yu-Gi-Oh TCG decks based on a personal collection of cards. It stands out from other deck building applications by using cards from the User's personal collection, keeping aware of amount limitataions while searching for the highest supported theme or card type.
