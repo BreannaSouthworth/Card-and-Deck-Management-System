@@ -14,7 +14,6 @@ advance_format_ruling varchar(15) not null
 
 drop table if exists monster_card;
 create table monster_card(
-monster_card_id int primary key auto_increment,
 card_id int not null,
 foreign key (card_id)
 references card(card_id),
@@ -31,7 +30,6 @@ def varchar(10)
 
 drop table if exists spell_card;
 create table spell_card(
-spell_card_id int primary key auto_increment,
 card_id int not null,
 foreign key (card_id)
 references card(card_id),
@@ -41,7 +39,6 @@ secondary_type varchar(10) not null
 
 drop table if exists trap_card;
 create table trap_card(
-trap_card_id int primary key auto_increment,
 card_id int not null,
 foreign key (card_id)
 references card(card_id),
@@ -52,9 +49,9 @@ secondary_type varchar(10) not null
 drop table if exists pendulum_card;
 create table pendulum_card(
 pendulum_card_id int primary key auto_increment,
-monster_card_id int not null,
-foreign key (monster_card_id)
-references monster_card(monster_card_id),
+card_id int not null,
+foreign key (card_id)
+references card(card_id),
 spell_effect_text varchar(700) not null,
 pendulum_scale int not null
 );
@@ -62,9 +59,9 @@ pendulum_scale int not null
 drop table if exists monster_material;
 create table monster_material(
 monster_material_id int primary key auto_increment,
-monster_card_id int not null,
-foreign key (monster_card_id)
-references monster_card(monster_card_id),
+card_id int not null,
+foreign key (card_id)
+references card(card_id),
 card_property_required varchar(20) not null,
 property_value varchar(50) not null
 );
@@ -77,9 +74,9 @@ position varchar(12) not null
 
 drop table if exists card_link_arrow;
 create table card_link_arrow(
-monster_card_id int not null,
-foreign key (monster_card_id)
-references monster_card(monster_card_id),
+card_id int not null,
+foreign key (card_id)
+references card(card_id),
 link_arrow_id int not null,
 foreign key (link_arrow_id)
 references link_arrow(link_arrow_id),
