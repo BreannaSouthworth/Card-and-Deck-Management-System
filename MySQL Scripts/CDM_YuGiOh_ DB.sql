@@ -80,7 +80,7 @@ references card(card_id),
 link_arrow_id int not null,
 foreign key (link_arrow_id)
 references link_arrow(link_arrow_id),
-primary key card_link_arrow_pk (monster_card_id, link_arrow_id)
+primary key card_link_arrow_pk (card_id, link_arrow_id)
 );
 
 drop table if exists card_number;
@@ -121,7 +121,9 @@ references card(card_id),
 deck_id int not null,
 foreign key (deck_id)
 references deck(deck_id),
-primary key deck_card_pk (card_id, deck_id)
+primary key deck_card_pk (card_id, deck_id),
+deck_section varchar(20) not null,
+count int not null
 );
 
 drop table if exists collection;
@@ -139,5 +141,6 @@ references card(card_id),
 collection_id int not null,
 foreign key (collection_id)
 references collection(collection_id),
-primary key collection_card_pk (card_id, collection_id)
+primary key collection_card_pk (card_id, collection_id),
+count int not null
 );

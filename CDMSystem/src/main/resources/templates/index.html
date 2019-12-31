@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!--/*/ <th:block th:include="fragments/cdmlook.html :: head">
+            </th:block> /*/-->
+    </head>
+    <body>
+        <div th:replace="fragments/cdmlook.html :: beta_navbar"></div>
+        
+        <div class="container-fluid m-1">
+            <div class="row">
+                <div class="col">
+                    <p>Hello World</p>
+                </div>
+            </div>
+        </div>
+        
+        <div th:replace="fragments/cdmlook.html :: includes"></div>
+    </body>
+</html>

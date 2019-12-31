@@ -5,6 +5,7 @@
  */
 package com.bjsouth.cdmsystem.ygo_dto;
 
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 /**
@@ -51,8 +52,8 @@ public class MonsterCard extends Card{
         this.def = def;
     }
 
-    public MonsterCard(MonsterType monsterType, boolean tuner, boolean specialSummon, Ability ability, Attribute attribute, Type type, String atk, String def, int cardId, String cardName, String cardText, boolean legal, String traditionalFormatRuling, String advanceFormatRuling) {
-        super(cardId, cardName, cardText, legal, traditionalFormatRuling, advanceFormatRuling);
+    public MonsterCard(MonsterType monsterType, boolean tuner, boolean specialSummon, Ability ability, Attribute attribute, Type type, String atk, String def, int cardId, String cardName, String cardText, boolean legal, String traditionalFormatRuling, String advanceFormatRuling, Set<DeckCard> deckCards) {
+        super(cardId, cardName, cardText, legal, traditionalFormatRuling, advanceFormatRuling, deckCards);
         this.monsterType = monsterType;
         this.tuner = tuner;
         this.specialSummon = specialSummon;
@@ -60,6 +61,70 @@ public class MonsterCard extends Card{
         this.attribute = attribute;
         this.type = type;
         this.atk = atk;
+        this.def = def;
+    }
+
+    public MonsterType getMonsterType() {
+        return monsterType;
+    }
+
+    public void setMonsterType(MonsterType monsterType) {
+        this.monsterType = monsterType;
+    }
+
+    public boolean isTuner() {
+        return tuner;
+    }
+
+    public void setTuner(boolean tuner) {
+        this.tuner = tuner;
+    }
+
+    public boolean isSpecialSummon() {
+        return specialSummon;
+    }
+
+    public void setSpecialSummon(boolean specialSummon) {
+        this.specialSummon = specialSummon;
+    }
+
+    public Ability getAbility() {
+        return ability;
+    }
+
+    public void setAbility(Ability ability) {
+        this.ability = ability;
+    }
+
+    public Attribute getAttribute() {
+        return attribute;
+    }
+
+    public void setAttribute(Attribute attribute) {
+        this.attribute = attribute;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public String getAtk() {
+        return atk;
+    }
+
+    public void setAtk(String atk) {
+        this.atk = atk;
+    }
+
+    public String getDef() {
+        return def;
+    }
+
+    public void setDef(String def) {
         this.def = def;
     }
 }

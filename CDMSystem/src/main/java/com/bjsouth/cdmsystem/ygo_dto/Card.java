@@ -6,6 +6,7 @@
 package com.bjsouth.cdmsystem.ygo_dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Set;
 import javax.persistence.*;
 
 /**
@@ -19,7 +20,7 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name="card_id")
-    int cardId;
+    private int cardId;
     
     @Column(name="card_name")
     private String cardName;
@@ -36,22 +37,75 @@ public class Card {
     @Column(name="advance_format_ruling")
     private String advanceFormatRuling;
 
-    @ManyToMany
-    @JsonIgnore
-    @JoinTable(name = "deck_card",
-            joinColumns = {@JoinColumn(name = "card_id")},
-            inverseJoinColumns = {@JoinColumn(name = "deck_id")})
-    List<Deck> items;
+    @OneToMany(mappedBy = "card")
+    Set<DeckCard> deckCards;
     
     public Card() {
     }
 
-    public Card(int cardId, String cardName, String cardText, boolean legal, String traditionalFormatRuling, String advanceFormatRuling) {
+    public Card(int cardId, String cardName, String cardText, boolean legal, String traditionalFormatRuling, String advanceFormatRuling, Set<DeckCard> deckCards) {
         this.cardId = cardId;
         this.cardName = cardName;
         this.cardText = cardText;
         this.legal = legal;
         this.traditionalFormatRuling = traditionalFormatRuling;
         this.advanceFormatRuling = advanceFormatRuling;
+        this.deckCards = deckCards;
+    }
+
+    public int getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(int cardId) {
+        this.cardId = cardId;
+    }
+
+    public String getCardName() {
+        return cardName;
+    }
+
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
+    }
+
+    public String getCardText() {
+        return cardText;
+    }
+
+    public void setCardText(String cardText) {
+        this.cardText = cardText;
+    }
+
+    public boolean isLegal() {
+        return legal;
+    }
+
+    public void setLegal(boolean legal) {
+        this.legal = legal;
+    }
+
+    public String getTraditionalFormatRuling() {
+        return traditionalFormatRuling;
+    }
+
+    public void setTraditionalFormatRuling(String traditionalFormatRuling) {
+        this.traditionalFormatRuling = traditionalFormatRuling;
+    }
+
+    public String getAdvanceFormatRuling() {
+        return advanceFormatRuling;
+    }
+
+    public void setAdvanceFormatRuling(String advanceFormatRuling) {
+        this.advanceFormatRuling = advanceFormatRuling;
+    }
+
+    public Set<DeckCard> getDeckCards() {
+        return deckCards;
+    }
+
+    public void setDeckCards(Set<DeckCard> deckCards) {
+        this.deckCards = deckCards;
     }
 }
